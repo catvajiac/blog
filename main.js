@@ -23,14 +23,10 @@ $(document).ready(function() {
     $("#blogpost").val("");
     console.log(title);
     console.log(textarea);
-    //addPost(title, textarea);
     ref.child("blogposts").push({
       title: title,
       post: textarea
     }).catch(console.log.bind(console));
-    ref.child("blogposts").on('child_added', function(snapshot) {
-      addPost(snapshot.val().title, snapshot.val().post);
-    });
   });
   
   function addPost(title, textarea) {
